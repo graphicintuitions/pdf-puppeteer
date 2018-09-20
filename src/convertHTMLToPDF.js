@@ -6,7 +6,7 @@ let convertHTMLToPDF = async (html, callback, options = null) => {
             'Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.'
         );
     }
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args: ['--no-sandbox']});
     const page = await browser.newPage();
     if (!options) {
         options = { format: 'Letter' };
